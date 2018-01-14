@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class Menue extends Application {
+public class Menu extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -21,7 +21,7 @@ public class Menue extends Application {
 			VBox root = (VBox)FXMLLoader.load(getClass().getResource("MenuFxml.fxml"));
 			Scene scene = new Scene(root, 500, 500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setTitle("Menue");
+			primaryStage.setTitle("Menu");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException exception) {

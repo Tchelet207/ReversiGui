@@ -1,6 +1,8 @@
 package game;
 
 import java.util.ArrayList;
+
+import javafx.scene.paint.Color;
 /*
  * Naama Harshoshanim
  * 315783217
@@ -55,4 +57,14 @@ public interface Board {
 	 * @param newOcounter
 	 */
 	void setOCounter(int newOcounter);
+	/**
+	 * getting p1.
+	 * @return p1
+	 */
+	public Color getP1();
+	/**
+	 * getting p2.
+	 * @return p2
+	 */
+	public Color getP2();
 }

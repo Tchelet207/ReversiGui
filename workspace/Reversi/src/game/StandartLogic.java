@@ -29,7 +29,7 @@ public class StandartLogic implements Logic {
         for (int i = 0; i < this.board1.getSize(); i++) {
             for (int j = 0; j < this.board1.getSize(); j++) {
                 Point p = new Point(i+1, j+1);
-                if (this.board1.getBoard().get(i).get(j).getCelltype() == "Empty") {
+                if (this.board1.getBoard().get(i).get(j).getColor() == null) {
                     if (this.ifCellAnOption(p, 1, 1, c)) {
                         vector1.add(p);
                     } else if (this.ifCellAnOption(p, 1, 0, c)) {
@@ -67,8 +67,8 @@ public class StandartLogic implements Logic {
         if ((currentColumn >= 0) && (currentRow >= 0) &&
                 (currentColumn < this.board1.getSize()) &&
                 (currentRow < this.board1.getSize())) {
-            while (this.board1.getBoard().get(currentRow).get(currentColumn).getCelltype() != c.getCelltype() &&
-            		this.board1.getBoard().get(currentRow).get(currentColumn).getCelltype() != "Empty" &&
+            while (this.board1.getBoard().get(currentRow).get(currentColumn).getColor() != c.getColor() &&
+            		this.board1.getBoard().get(currentRow).get(currentColumn).getColor() != null &&
                     currentColumn < this.board1.getSize() &&
                     currentRow < this.board1.getSize() &&
                     currentColumn >= 0 &&
@@ -79,7 +79,7 @@ public class StandartLogic implements Logic {
                     currentRow < this.board1.getSize() &&
                     currentColumn >= 0 &&
                     currentRow >= 0) {
-                    if (this.board1.getBoard().get(currentRow).get(currentColumn).getCelltype() == c.getCelltype()) {
+                    if (this.board1.getBoard().get(currentRow).get(currentColumn).getColor() == c.getColor()) {
                         return true;
                     }
                 } else {
@@ -153,8 +153,8 @@ public class StandartLogic implements Logic {
         if (currentColunm >= 0 && currentRow >= 0 &&
             currentColunm < this.board1.getSize() &&
             currentRow < this.board1.getSize()) {
-            while (this.board1.getBoard().get(currentRow).get(currentColunm).getCelltype() != c.getCelltype() &&
-            		this.board1.getBoard().get(currentRow).get(currentColunm).getCelltype() != "Empty" &&
+            while (this.board1.getBoard().get(currentRow).get(currentColunm).getColor() != c.getColor() &&
+            		this.board1.getBoard().get(currentRow).get(currentColunm).getColor() != null &&
                    currentColunm < this.board1.getSize() &&
                    currentRow < this.board1.getSize() &&
                    currentColunm >= 0 &&
@@ -165,7 +165,7 @@ public class StandartLogic implements Logic {
                     currentRow < this.board1.getSize() &&
                     currentColunm >= 0 &&
                     currentRow >= 0) {
-                    if (this.board1.getBoard().get(currentRow).get(currentColunm).getCelltype() == c.getCelltype()) {
+                    if (this.board1.getBoard().get(currentRow).get(currentColunm).getColor() == c.getColor()) {
                         return true;
                     }
                 } else {
@@ -184,24 +184,24 @@ public class StandartLogic implements Logic {
      * @param c celltype
      */
     public void makeMove(Point p, int rowDelta, int columnDelta, Celltype c) {
-    	if (c.getCelltype() == "White") {
+    	if (c.getColor() == this.board1.getP2()) {
             this.board1.setOCounter(this.board1.getOCounter() + 1);
-        } else if (c.getCelltype() == "Black") {
+        } else if (c.getColor() == this.board1.getP1()) {
             this.board1.setXCounter(this.board1.getXCounter() + 1);
         }
-        this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).setCelltype(c.getCelltype());
+        this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).setCelltype(c.getColor());
         int currentRow = p.getX() - 1 + rowDelta, currentColunm = p.getY() - 1 + columnDelta;
-        while (this.board1.getBoard().get(currentRow).get(currentColunm).getCelltype() != c.getCelltype() &&
-        		this.board1.getBoard().get(currentRow).get(currentColunm).getCelltype() != "Empty" &&
+        while (this.board1.getBoard().get(currentRow).get(currentColunm).getColor() != c.getColor() &&
+        		this.board1.getBoard().get(currentRow).get(currentColunm).getColor() != null &&
                currentColunm < this.board1.getSize() &&
                currentRow < this.board1.getSize() &&
                currentColunm >= 0 &&
                currentRow >= 0) {
-        	this.board1.getBoard().get(currentRow).get(currentColunm).setCelltype(c.getCelltype());
-        	if (c.getCelltype() == "White") {
+        	this.board1.getBoard().get(currentRow).get(currentColunm).setCelltype(c.getColor());
+        	if (c.getColor() == this.board1.getP2()) {
                 this.board1.setOCounter(this.board1.getOCounter() + 1);
                 this.board1.setXCounter(this.board1.getXCounter() - 1);
-            } else if (c.getCelltype() == "Black") {
+            } else if (c.getColor() == this.board1.getP1()) {
                 this.board1.setXCounter(this.board1.getXCounter() + 1);
                 this.board1.setOCounter(this.board1.getOCounter() - 1);
             }

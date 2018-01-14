@@ -17,12 +17,12 @@ public class Main {
     	InputStreamReader r = new InputStreamReader(ClassLoader.getSystemClassLoader()
                 .getResourceAsStream("setting.txt"));
     	GameSettings gs = SettingsReader.fromReader(r);
-    	Board board = new BoardConsole(gs.getSize());
-    	Celltype black = new Celltype("Black");
-    	Celltype white = new Celltype("White");
+    	Board board = new BoardConsole(gs.getSize(), gs.getPlayer1(), gs.getPlayer2());
+    	Celltype black = new Celltype(gs.getPlayer1());
+    	Celltype white = new Celltype(gs.getPlayer2());
     	PersonP personP1;
     	PersonP personP2;
-    	if (gs.getOpeningColor().equals("white")) {
+    	if (gs.getOpeningColor() == gs.getPlayer2()) {
     		personP1 = new PersonP("O" ,white);
     		personP2 = new PersonP("X" ,black);
     	} else {

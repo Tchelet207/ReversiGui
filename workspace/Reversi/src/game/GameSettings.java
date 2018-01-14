@@ -1,9 +1,11 @@
 package game;
 
+import javafx.scene.paint.Color;
+
 public class GameSettings {
-	private String openingColor;
-	private String player1;
-	private String player2;
+	private Color openingColor;
+	private Color player1;
+	private Color player2;
 	private int boardSize;
 	/**
 	 * constructor.
@@ -12,7 +14,7 @@ public class GameSettings {
 	 * @param p2    player2
 	 * @param bs    boardSize
 	 */
-	public GameSettings(String oc, String p1, String p2, int bs) {
+	public GameSettings(Color oc, Color p1, Color p2, int bs) {
 		this.boardSize = bs;
 		this.openingColor = oc;
 		this.player1 = p1;
@@ -22,21 +24,21 @@ public class GameSettings {
 	 * getting openingColor.
 	 * @return openingColor
 	 */
-	public String getOpeningColor() {
+	public Color getOpeningColor() {
 		return this.openingColor;
 	}
 	/**
 	 * getting player1.
 	 * @return player1
 	 */
-	public String getPlayer1() {
+	public Color getPlayer1() {
 		return this.player1;
 	}
 	/**
 	 * getting player2.
 	 * @return player2
 	 */
-	public String getPlayer2() {
+	public Color getPlayer2() {
 		return this.player2;
 	}
 	/**

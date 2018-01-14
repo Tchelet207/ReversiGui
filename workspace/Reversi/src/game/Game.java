@@ -71,12 +71,12 @@ public class Game {
 	        vec.clear();
 	    }
 	    this.board.printBoard();
-	    if ((this.board.whoWins().getCelltype() == "Black" && this.player1.getCellType().getCelltype() == "Black") ||
-	        (this.board.whoWins().getCelltype() == "White" && this.player1.getCellType().getCelltype() == "White")) {
+	    if ((this.board.whoWins().getColor() == this.board.getP1() && this.player1.getCellType().getColor() == this.board.getP1()) ||
+	        (this.board.whoWins().getColor() == this.board.getP2() && this.player1.getCellType().getColor() == this.board.getP2())) {
 	        System.out.println(this.player1.getName() + " wins!");
 	    	//cout << this->player1->getName() << " wins!" << endl;
-	    } else if ((this.board.whoWins().getCelltype() == "Black" && this.player2.getCellType().getCelltype() == "Black") ||
-	               (this.board.whoWins().getCelltype() == "White" && this.player2.getCellType().getCelltype() == "White")){
+	    } else if ((this.board.whoWins().getColor() == this.board.getP1() && this.player2.getCellType().getColor() == this.board.getP1()) ||
+	               (this.board.whoWins().getColor() == this.board.getP2() && this.player2.getCellType().getColor() == this.board.getP2())){
 	        System.out.println(this.player2.getName() + " wins!");
 	    	//cout << this->player2->getName() << " wins!" << endl;
 	    } else {
