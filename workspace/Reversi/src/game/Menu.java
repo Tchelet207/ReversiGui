@@ -14,7 +14,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Menu extends Application {
-
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -22,7 +21,7 @@ public class Menu extends Application {
 			Scene scene = new Scene(root, 500, 500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Menu");
-			primaryStage.setScene(scene);
+			primaryStage.setScene(scene); 
 			primaryStage.show();
 		} catch (IOException exception) {
 		 	throw new RuntimeException(exception);
