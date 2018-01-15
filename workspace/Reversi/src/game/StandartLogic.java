@@ -184,9 +184,9 @@ public class StandartLogic implements Logic {
      * @param c celltype
      */
     public void makeMove(Point p, int rowDelta, int columnDelta, Celltype c) {
-    	if (c.getColor() == this.board1.getP2()) {
+    	if (c.getColor() == this.board1.getP2() && this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).getColor() == null) {
             this.board1.setOCounter(this.board1.getOCounter() + 1);
-        } else if (c.getColor() == this.board1.getP1()) {
+        } else if (c.getColor() == this.board1.getP1() && this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).getColor() == null) {
             this.board1.setXCounter(this.board1.getXCounter() + 1);
         }
         this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).setCelltype(c.getColor());

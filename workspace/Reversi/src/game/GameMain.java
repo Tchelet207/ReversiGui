@@ -13,7 +13,7 @@ public class GameMain extends Application {
 			HBox root = (HBox)FXMLLoader.load(getClass().getResource("GameFxml.fxml"));
 			Scene scene = new Scene(root,520,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setTitle("Maze game");
+			primaryStage.setTitle("Reversi");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
