@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -21,22 +23,6 @@ public class BoardController extends GridPane {
 	private int ifHaveMove;
     private boolean ifValid;
     private GameController gameController;
-	
-	/**
-	    if ((this.board.whoWins().getColor() == this.board.getP1() && this.player1.getCellType().getColor() == this.board.getP1()) ||
-	        (this.board.whoWins().getColor() == this.board.getP2() && this.player1.getCellType().getColor() == this.board.getP2())) {
-	        System.out.println(this.player1.getName() + " wins!");
-	    	//cout << this->player1->getName() << " wins!" << endl;
-	    } else if ((this.board.whoWins().getColor() == this.board.getP1() && this.player2.getCellType().getColor() == this.board.getP1()) ||
-	               (this.board.whoWins().getColor() == this.board.getP2() && this.player2.getCellType().getColor() == this.board.getP2())){
-	        System.out.println(this.player2.getName() + " wins!");
-	    	//cout << this->player2->getName() << " wins!" << endl;
-	    } else {
-	        System.out.println("its a tie!");
-	        //cout << "its a tie!" << endl;
-	    }
-	}
-	*/
 	
 	
 	public BoardController(Board board, Logic logic, Player p1, Player p2, GameController gameController) {
@@ -90,7 +76,21 @@ public class BoardController extends GridPane {
 	
 	public void playOneTurn(Point p) {
 		if (this.board.ifFull() || ifHaveMove == 2) {
-			
+			String str;
+			if ((this.board.whoWins().getColor() == this.board.getP1() && this.player1.getCellType().getColor() == this.board.getP1()) ||
+					(this.board.whoWins().getColor() == this.board.getP2() && this.player1.getCellType().getColor() == this.board.getP2())) {
+			    str = this.player1.getName() + " wins!";
+			} else if ((this.board.whoWins().getColor() == this.board.getP1() && this.player2.getCellType().getColor() == this.board.getP1()) ||
+					(this.board.whoWins().getColor() == this.board.getP2() && this.player2.getCellType().getColor() == this.board.getP2())){
+				str = this.player2.getName() + " wins!";
+			} else {
+				str = "its a tie!";
+			}
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Game over!");
+			alert.setHeaderText(null);
+			alert.setContentText(str);
+			alert.showAndWait();
 		} else {
 			Player player;
 			ifValid = false;

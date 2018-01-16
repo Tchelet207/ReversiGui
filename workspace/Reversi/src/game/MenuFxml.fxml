@@ -8,28 +8,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="TOP_CENTER" blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.MenuController">
    <children>
       <Label contentDisplay="CENTER" graphicTextGap="10.0" prefHeight="114.0" prefWidth="286.0" text="  Menu:" textAlignment="CENTER" textFill="#1ba182">
          <font>
             <Font name="Berlin Sans FB Bold" size="68.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="147.0" text="Setting" textFill="#611414">
+      <Button fx:id="settingButton" mnemonicParsing="false" onAction="#chooseSettings" prefHeight="51.0" prefWidth="147.0" text="Settings" textFill="#611414">
          <font>
             <Font name="Cambria" size="23.0" />
          </font>
       </Button>
       <Label />
-      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="149.0" text="Start Game" textFill="#9e0451">
+      <Label />
+      <Button fx:id="startButton" mnemonicParsing="false" onAction="#startingGame" prefHeight="39.0" prefWidth="149.0" text="Start Game" textFill="#9e0451">
          <font>
             <Font name="Candara" size="23.0" />
-         </font>
-      </Button>
-      <Label />
-      <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="152.0" text="Exit" textFill="#8330d7">
-         <font>
-            <Font name="Cambria Math" size="23.0" />
          </font>
       </Button>
    </children>
