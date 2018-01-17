@@ -14,7 +14,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englman
+ * 208780585
+ */
 public class SettingsController implements Initializable {
 	@FXML
 	private ComboBox player1Color;
@@ -26,7 +31,7 @@ public class SettingsController implements Initializable {
 	private ComboBox boardSize;
 	@FXML
 	private Button okKey;
-	
+	// members:
 	ObservableList<String> player1ColorList =
 			FXCollections.observableArrayList("black", "white", "pink", "red", "blue", "green",
 					"yellow", "purple");
@@ -37,7 +42,9 @@ public class SettingsController implements Initializable {
 			FXCollections.observableArrayList("1", "2");
 	ObservableList<String> boardSizeList =
 			FXCollections.observableArrayList("4X4","6X6","8X8","10X10","12X12", "14X14", "16X16", "18X18", "20X20");
-	
+	/**
+	 * return to the menu and save the setting.
+	 */
 	@FXML
 	protected void pressOkKey() {
 		String player1 = this.player1Color.getValue().toString();
@@ -51,7 +58,13 @@ public class SettingsController implements Initializable {
 		Menu menu = new Menu();
 		menu.start(s);
 	}
-
+	/**
+	 * writing to file.
+	 * @param p1 String
+	 * @param p2 String
+	 * @param op String
+	 * @param bs String
+	 */
 	private void writingToFile(String p1, String p2, String op, String bs) {
 		Writer writer = null;
 		try {
@@ -78,6 +91,11 @@ public class SettingsController implements Initializable {
 			}
 		}
 	}
+	/**
+	 * initialize.
+	 * @param arg0 URL
+	 * @param arg1 ResourceBundle
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

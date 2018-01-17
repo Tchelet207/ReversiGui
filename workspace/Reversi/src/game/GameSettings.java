@@ -1,8 +1,14 @@
 package game;
 
 import javafx.scene.paint.Color;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englman
+ * 208780585
+ */
 public class GameSettings {
+	// members:
 	private Color openingColor;
 	private Color player1;
 	private Color player2;

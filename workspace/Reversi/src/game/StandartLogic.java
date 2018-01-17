@@ -16,12 +16,11 @@ public class StandartLogic implements Logic {
 	 */
     public StandartLogic(Board board) {
 	    this.board1 = board;
-	}
-    
+	}  
     /**
      * finding the optional cells that the player can choose.
      * returning a vector of optional points.
-     * @param c
+     * @param c Celltype
      * @return ArrayList<Point>*
      */
     public ArrayList<Point> findCells(Celltype c) {
@@ -52,14 +51,13 @@ public class StandartLogic implements Logic {
         }
         return vector1;
     }
-
     /**
      * checking if the cell is one of the options.
      * @param p Point
      * @param rowDelta int
      * @param columnDelta int
      * @param c Celltype
-     * @return boolean
+     * @return Boolean
      */
     public boolean ifCellAnOption(Point p, int rowDelta, int columnDelta, Celltype c) {
         int currentRow = p.getX() - 1 + rowDelta;
@@ -89,12 +87,11 @@ public class StandartLogic implements Logic {
         }
         return false;
     }
-
     /**
      * checking if the cell is one of the options.
-     * @param p
-     * @param vec
-     * @return boolean
+     * @param p Point
+     * @param vec ArrayList<Point>
+     * @return Boolean
      */
     public boolean ifCellValid(Point p, ArrayList<Point> vec) {
         boolean ifValid = false;
@@ -110,8 +107,8 @@ public class StandartLogic implements Logic {
 
     /**
      * updating the board after the player chose the cell.
-     * @param celltype1
-     * @param p
+     * @param celltype1 Celltype
+     * @param p Point
      */
     public void updateBoard(Celltype celltype, Point p) {
         if (this.checkCells(p, 1, 0, celltype)) {
@@ -139,14 +136,13 @@ public class StandartLogic implements Logic {
             this.makeMove(p, 0, -1, celltype);
         }
     }
-
     /**
      * for each empty cell, check if its an optional cell to the player.
-     * @param p
-     * @param rowDelta
-     * @param columnDelta
-     * @param c boolean
-     * @return options
+     * @param p Point
+     * @param rowDelta int
+     * @param columnDelta int
+     * @param c Boolean
+     * @return Boolean
      */
     public boolean checkCells(Point p, int rowDelta, int coulmnDelta, Celltype c) {
         int currentRow = p.getX() - 1 + rowDelta, currentColunm = p.getY() - 1 + coulmnDelta;
@@ -175,13 +171,12 @@ public class StandartLogic implements Logic {
         }
         return false;
     }
-
     /**
      * make a move
      * @param p Point
      * @param rowDelta int
      * @param columnDelta int
-     * @param c celltype
+     * @param c Celltype
      */
     public void makeMove(Point p, int rowDelta, int columnDelta, Celltype c) {
     	if (c.getColor() == this.board1.getP2() && this.board1.getBoard().get(p.getX() - 1).get(p.getY() - 1).getColor() == null) {
@@ -215,7 +210,6 @@ public class StandartLogic implements Logic {
             }
         }
     }
-
     /**
      * get of the member optionalCells
      * @return ArrayList<Point>
@@ -223,7 +217,6 @@ public class StandartLogic implements Logic {
     public ArrayList<Point> getOptionalCells() {
         return this.optionalCells;
     }
-
     /**
      * checking if the player has more moves.
      * @return boolean
@@ -234,5 +227,4 @@ public class StandartLogic implements Logic {
 	    }
 	    return true;
 	}
-
 }

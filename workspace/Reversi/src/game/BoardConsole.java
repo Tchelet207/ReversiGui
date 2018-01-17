@@ -1,9 +1,7 @@
 package game;
 
 import java.util.ArrayList;
-
 import javafx.scene.paint.Color;
-
 /*
  * Naama Harshoshanim
  * 315783217

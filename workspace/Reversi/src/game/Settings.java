@@ -1,16 +1,23 @@
 package game;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englman
+ * 208780585
+ */
 public class Settings extends Application {
 	@Override
+	/**
+	 * start show the stage
+	 * @param primaryStage Stage
+	 */
 	public void start(Stage primaryStage) {
 		try {
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("SettingsFxml.fxml"));
@@ -23,7 +30,10 @@ public class Settings extends Application {
 		 	throw new RuntimeException(exception);
 		}
 	}
-	
+	/**
+	 * main function.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -6,9 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englman
+ * 208780585
+ */
 public class Menu extends Application {
 	@Override
+	/**
+	 * start show the stage
+	 * @param primaryStage Stage
+	 */
 	public void start(Stage primaryStage) {
 		try {
 			VBox root = (VBox)FXMLLoader.load(getClass().getResource("MenuFxml.fxml"));
@@ -21,7 +30,10 @@ public class Menu extends Application {
 		 	throw new RuntimeException(exception);
 		}
 	}
-
+	/**
+	 * main function.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

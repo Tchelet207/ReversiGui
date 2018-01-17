@@ -2,8 +2,6 @@ package game;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -11,7 +9,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englmans
+ * 208780585
+ */
 public class BoardController extends GridPane {
 	private Board board;
 	private static final int FREE = 0;
@@ -23,8 +26,14 @@ public class BoardController extends GridPane {
 	private int ifHaveMove;
     private boolean ifValid;
     private GameController gameController;
-	
-	
+	/**
+	 * constructor.
+	 * @param board Board
+	 * @param logic Logic
+	 * @param p1 Player
+	 * @param p2 Player
+	 * @param gameController GameController
+	 */
 	public BoardController(Board board, Logic logic, Player p1, Player p2, GameController gameController) {
 	    this.logic = logic;
 	    this.board = board;
@@ -37,7 +46,6 @@ public class BoardController extends GridPane {
 	    FXMLLoader(getClass().getResource("BoardFxml.fxml"));
 	    fxmlLoader.setRoot(this);
 	    fxmlLoader.setController(this);
-
 	    try {
 	        fxmlLoader.load();
 	        this.setOnMouseClicked(event-> {
@@ -49,7 +57,9 @@ public class BoardController extends GridPane {
 	        throw new RuntimeException(exception);
 	    }
     }
-
+	/**
+	 * draw the board.
+	 */
 	public void draw() {
 		 this.getChildren().clear();
 		 int height = (int)this.getPrefHeight();
@@ -58,7 +68,7 @@ public class BoardController extends GridPane {
 		 int cellWidth = width / board.getSize();
 		 for (int i = 0; i < board.getSize(); i++) {
 			 for (int j = 0; j < board.getSize(); j++) {
-				 Rectangle rect = new Rectangle(cellWidth, cellHeight, Color.WHITE);
+				 Rectangle rect = new Rectangle(cellWidth, cellHeight, Color.ROSYBROWN);
 				 rect.setStroke(Color.BLACK);
 				 this.add(rect, i , j);
 				 if (this.board.getBoard().get(i).get(j).getColor() == this.board.getP1()) {
@@ -73,9 +83,13 @@ public class BoardController extends GridPane {
 			 }
 		 }
 	}
-	
+	/**
+	 * play one turn.
+	 * @param p Point
+	 */
 	public void playOneTurn(Point p) {
 		if (this.board.ifFull() || ifHaveMove == 2) {
+			// end the game
 			String str;
 			if ((this.board.whoWins().getColor() == this.board.getP1() && this.player1.getCellType().getColor() == this.board.getP1()) ||
 					(this.board.whoWins().getColor() == this.board.getP2() && this.player1.getCellType().getColor() == this.board.getP2())) {
@@ -112,15 +126,9 @@ public class BoardController extends GridPane {
 		        	    this.gameController.setPlayerCounter("Current player :" + player2.getName(), "player 1: " + this.board.getXCounter(), "player 2: " + this.board.getOCounter());
 	    	        }
 	                draw();
-	                    //System.out.println("x: " + this.board.getXCounter() + ", o: " + this.board.getOCounter());
-	                    //this.board.printBoard();
-	                    //System.out.println(player.getName() + " played (" + p.getX() + "," + p.getY() + ")");
-	            } else {
-	                	//System.out.println("cant choose this cell");
 	            }
 	        } else {
-	        	//System.out.println(player.getName() + ": its your move.");
-	        	//System.out.println("No possible moves. Play passes back to the other player. Press any key to continue.");
+	        	// if the player don't have move.
 	        	playerTrace++;
 	        	ifHaveMove++;
 	        }

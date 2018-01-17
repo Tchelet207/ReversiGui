@@ -1,10 +1,14 @@
 package game;
-import java.io.BufferedReader;
-import java.io.IOException;
 
+import java.io.BufferedReader;
 import game.GameSettings;
 import javafx.scene.paint.Color;
-
+/*
+ * Naama Harshoshanim
+ * 315783217
+ * Tchelet Englman
+ * 208780585
+ */
 public class SettingsReader {
 	/**
 	 * reading the file and return GameSettings.
@@ -33,7 +37,11 @@ public class SettingsReader {
         GameSettings settings = new GameSettings(openingColor, player1, player2, boardSize);
         return settings;
 	}
-	
+	/**
+	 * convert string to color.
+	 * @param color String
+	 * @return Color
+	 */
 	public static Color convertFromStringToColor(String color) {
 		switch (color) {
 			case "black":
